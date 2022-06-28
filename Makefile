@@ -6,7 +6,7 @@
 #    By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 11:00:22 by pirichar          #+#    #+#              #
-#    Updated: 2022/06/27 21:57:17 by pirichar         ###   ########.fr        #
+#    Updated: 2022/06/28 08:58:00 by pirichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ all:		$(NAME)
 
 clean:
 			@$(RM) $(OBJS) $(OBJ)
+			$(FTMAKE) $@
 
 fclean:		clean
 			@$(RM) $(NAME)

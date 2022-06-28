@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 13:00:27 by pirichar          #+#    #+#             */
-/*   Updated: 2022/06/27 21:57:56 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/06/28 08:36:36 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_mlx
 	int				win_y;
 	int				fd;
 	char			**map;
+	char			buffer[4000];
 	char			f_state;
 	char			clr_state;
 	char			zoom_state;

@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 {
 
 	t_mlx mlx;
+	int ret;
 	(void)argv;
 
 	if (argc == 2)
@@ -25,7 +26,14 @@ int	main(int argc, char **argv)
 		
 		init_mlx(&mlx);
 		//open map
-		// mlx.fd = open(argv[1], O_RDONLY);
+		mlx.fd = open(argv[1], O_RDONLY);
+		if (mlx.fd == -1)
+		{
+			perror("open");
+			return (1);
+		}
+		ret = read(mlx.fd, mlx.buffer, 4000);
+		mlx.map = ft_split(mlx.buffer, '\n');
 
 		//parse map
 
