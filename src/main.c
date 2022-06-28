@@ -34,7 +34,8 @@ int	main(int argc, char **argv)
 		}
 		ret = read(mlx.fd, mlx.buffer, 4000);
 		mlx.map = ft_split(mlx.buffer, '\n');
-
+		for(int i = 0; mlx.map[i]; i++)
+			printf("%s\n", mlx.map[i]);
 		//parse map
 
 		//print map and player with position
