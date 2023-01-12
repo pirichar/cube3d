@@ -24,6 +24,7 @@ int	keypress(int key, t_mlx *mlx)
 		mlx->imgu = mlx_xpm_file_to_image(mlx->mlx_ptr, "./boyo.xpm", &img_width, &img_height);
 		if (mlx->imgu == NULL)
 		{
+			
 			printf(RED"COULD'T READ THE IMAGE\n"RESET);
 			return 1;
 		}
