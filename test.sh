@@ -1,5 +1,5 @@
 make
 
-./cub3d
+./cub3d map.cub
 
 make fclean

@@ -1,5 +1,41 @@
 #include "../include/cub3d.h"
 
+
+//https://harm-smits.github.io/42docs/libs/minilibx/images.html
+
+
+
+int	keypress(int key, t_mlx *mlx)
+{
+	if (key == KEY_ESC)
+	{
+		printf(GRN"Good bye!\n"RESET);
+		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+		exit (0);
+	}	
+
+	if (key == KEY_M)
+	{
+		void	*img;
+		int		img_width;
+		int		img_height;
+
+		img = NULL;
+		mlx->imgu = mlx_xpm_file_to_image(mlx->mlx_ptr, "./boyo.xpm", &img_width, &img_height);
+		if (mlx->imgu == NULL)
+		{
+			printf(RED"COULD'T READ THE IMAGE\n"RESET);
+			return 1;
+		}
+		else
+			mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, \
+							mlx->imgu, 0 , 0 );
+		
+		printf("SHOULD BE DONE\n");
+	}	
+	return (0);
+}
+
 void	init_mlx(t_mlx *mlx)
 {
 	mlx->win_x = 1280;
@@ -38,8 +74,13 @@ int	main(int argc, char **argv)
 		//parse map
 
 		//print map and player with position
+
 		//struct player with enum position
+		mlx_key_hook(mlx.win_ptr, keypress, &mlx);
 		mlx_loop(mlx.mlx_ptr);
+	}
+	else {
+		printf("Please provide a map to the program\n");
 	}
 
 }

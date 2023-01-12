@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 13:00:27 by pirichar          #+#    #+#             */
-/*   Updated: 2022/06/28 08:36:36 by pirichar         ###   ########.fr       */
+/*   Updated: 2023/01/11 23:41:42 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,15 @@ typedef struct s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		x;
+	int		y;
+	int		width;
+	int		height;
+	int		to_clct;
+	int		clctd;
+	int		moves;
+	int		player_cnt;
+	int		exits;
 }			t_data;
 
 typedef struct s_mouse
@@ -60,6 +69,7 @@ typedef struct s_mlx
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
+	void			*imgu;
 	char			*s;
 	int				win_x;
 	int				win_y;
@@ -86,6 +96,13 @@ typedef struct s_mlx
 	t_data			img;
 	t_color_pal		col;
 	t_mouse			mouse;
+	void	*player;
+	void	*wall;
+	void	*floor;
+	void	*flower;
+	void	*princess;
+	int		width;
+	int		height;
 }				t_mlx;
 
 void	clearscreen(t_mlx *mlx);
