@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 13:00:27 by pirichar          #+#    #+#             */
-/*   Updated: 2023/01/11 23:41:42 by pirichar         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:22:40 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,21 @@
 # include <fcntl.h>
 # include "../libft/libft.h"
 
+
+typedef struct s_game
+{
+	void	*mlx;
+	void	*mlx_win;
+	void	*player;
+	void	*wall;
+	void	*floor;
+	void	*flower;
+	void	*princess;
+	void	*black_tile;
+	void	*white_tile;
+	int		width;
+	int		height;
+}				t_game;
 typedef struct s_color_pal
 {
 	int	black;
@@ -67,6 +82,7 @@ typedef struct s_mouse
 
 typedef struct s_mlx
 {
+	t_game			image;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*imgu;
@@ -76,21 +92,9 @@ typedef struct s_mlx
 	int				fd;
 	char			**map;
 	char			buffer[4000];
-	char			f_state;
-	char			clr_state;
-	char			zoom_state;
 	char			menu_state;
 	char			is_looping;
 	char			is_active;
-	double			min_val;
-	double			max_val;
-	double			c1;
-	double			c2;
-	int				max_i;
-	double			n;
-	long double		zoom_base;
-	long double		a;
-	long double		b;
 	long double		x;
 	long double		y;
 	t_data			img;
@@ -101,8 +105,13 @@ typedef struct s_mlx
 	void	*floor;
 	void	*flower;
 	void	*princess;
+	int		player_x;
+	int		player_y;
 	int		width;
 	int		height;
+	int		ret;
+	int		map_lenght;
+	int		map_height;
 }				t_mlx;
 
 void	clearscreen(t_mlx *mlx);
